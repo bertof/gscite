@@ -1,7 +1,14 @@
 [package]
 name = "gscite"
-version = "0.1.0"
+version = "1.0.0"
+authors = ["Filippo Berto <berto.f@protonmail.com>"]
 edition = "2021"
+description = "Citation reference scraper for the Google Scholar web service"
+repository = "https://github.com/bertof/gscite"
+license = "MIT OR Apache-2.0"
+keywords = [ "google_scholar", "bibtex", "endnote", "refman", "refworks" ]
+exclude = [ "bacon.toml", "flake.nix", "flake.lock" ]
+badges = [ "https://img.shields.io/github/stars/bertof/gscite?style=flat-square", "https://img.shields.io/crates/d/gscite?style=flat-square", "https://img.shields.io/crates/l/gscite?style=flat-square","https://img.shields.io/tokei/lines/github/bertof/gscite?style=flat-square" ]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -15,4 +22,3 @@ url = "2.3.1"
 
 [dev-dependencies]
 tokio = { version = "^1.14", features = [ "rt-multi-thread", "macros", "signal", "time" ] }
-

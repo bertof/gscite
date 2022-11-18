@@ -67,7 +67,7 @@ impl Client {
     /// Get references for a given query
     ///
     /// # Errors
-    /// Returns a [`Error::UrlParseError`] if the query generates an illegal [`Url`] or a [`Error::RequestErrro`] if the request fails.
+    /// Returns a [`Error::UrlParseError`] if the query generates an illegal [`Url`] or a [`Error::RequestError`] if the request fails.
     pub async fn get_references(
         &self,
         query: &str,
