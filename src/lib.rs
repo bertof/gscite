@@ -8,7 +8,6 @@
     missing_debug_implementations
 )]
 
-use error::Error;
 use futures_util::{stream, Stream, StreamExt, TryStreamExt};
 use reqwest::{
     header::{HeaderMap, HeaderName, HeaderValue},
@@ -16,7 +15,16 @@ use reqwest::{
 };
 use scraper::{ElementRef, Html, Selector};
 
-mod error;
+/// Query related errors
+#[derive(thiserror::Error, Debug)]
+pub enum Error {
+    /// Error while parsing a URL
+    #[error(transparent)]
+    UrlParseError(#[from] url::ParseError),
+    /// Error while sending a request
+    #[error(transparent)]
+    RequestError(#[from] reqwest::Error),
+}
 
 /// Type of citation to export
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -87,7 +95,6 @@ impl Client {
                 let reference = self.0.get(url).send().await?.text().await?;
                 Ok(reference)
             });
-
         Ok(references)
     }
 
