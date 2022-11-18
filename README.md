@@ -1,2 +1,2 @@
 # gscite
-Scraper for Google Scholar wirtten in Rust
+Scraper for Google Scholar written in Rust
