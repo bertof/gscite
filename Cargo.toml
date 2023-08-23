@@ -6,19 +6,25 @@ edition = "2021"
 description = "Citation reference scraper for the Google Scholar web service"
 repository = "https://github.com/bertof/gscite"
 license = "MIT OR Apache-2.0"
-keywords = [ "google_scholar", "bibtex", "endnote", "refman", "refworks" ]
-exclude = [ "bacon.toml", "flake.nix", "flake.lock" ]
-badges = [ "https://img.shields.io/github/stars/bertof/gscite?style=flat-square", "https://img.shields.io/crates/d/gscite?style=flat-square", "https://img.shields.io/crates/l/gscite?style=flat-square","https://img.shields.io/tokei/lines/github/bertof/gscite?style=flat-square" ]
+keywords = ["google_scholar", "bibtex", "endnote", "refman", "refworks"]
+exclude = ["bacon.toml", "flake.nix", "flake.lock"]
 
+[badges]
+maintenance = { status = "passively-maintained" }
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-cssparser = "0.29.6"
+# cssparser = "0.29.6"
 futures-util = "0.3.25"
-reqwest = { version = "0.11.13", features = ["gzip", "rustls-tls", "cookies"] }
-scraper = "0.13.0"
+reqwest = { version = "0.11.13", features = ["gzip", "rustls-tls", "cookies"], default-features = false }
+scraper = "0.17.0"
 thiserror = "1.0.37"
 url = "2.3.1"
 
 [dev-dependencies]
-tokio = { version = "^1.14", features = [ "rt-multi-thread", "macros", "signal", "time" ] }
+tokio = { version = "^1.14", features = [
+  "rt-multi-thread",
+  "macros",
+  "signal",
+  "time",
+] }

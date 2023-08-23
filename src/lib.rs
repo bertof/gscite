@@ -137,7 +137,7 @@ impl Client {
     /// This should never happen with the ids obtained by [`Self::scrape_citation_ids`]
     pub(crate) fn get_cite_url(citation_id: &str) -> Result<Url, url::ParseError> {
         let mut url = Url::parse("https://scholar.google.com/scholar")?;
-        let query = format!("info:{}:scholar.google.com/", citation_id);
+        let query = format!("info:{citation_id}:scholar.google.com/");
 
         url.query_pairs_mut()
             .append_pair("hl", "en")

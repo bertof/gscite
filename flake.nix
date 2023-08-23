@@ -38,18 +38,19 @@
               nixpkgs-fmt.enable = true;
               statix.enable = true;
 
-              clippy.enable = true;
-              rustfmt.enable = true;
-            };
-            tools = {
-              clippy = lib.mkDefault pkgs.rustc;
-              rustfmt = lib.mkDefault pkgs.rustc;
+              rustfmt = {
+                enable = true;
+                entry = lib.mkDefault "${pkgs.rustc}/bin/cargo-fmt  -- --color always";
+              };
             };
           };
 
+          packages.rustc = pkgs.rustc;
+
           devShells.default = pkgs.mkShell {
             buildInputs = with pkgs; [
-              openssl.dev
+              bacon
+              # openssl.dev
               pkg-config
               stdenv.cc
               rustc
