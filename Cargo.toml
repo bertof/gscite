@@ -16,15 +16,25 @@ maintenance = { status = "passively-maintained" }
 [dependencies]
 # cssparser = "0.29.6"
 futures-util = "0.3.25"
-reqwest = { version = "0.11.13", features = ["gzip", "rustls-tls", "cookies"], default-features = false }
+# gscholar = "0.1.0"
+reqwest = { version = "0.11.13", features = [
+  "gzip",
+  "rustls-tls",
+  "cookies",
+], default-features = false }
 scraper = "0.17.0"
 thiserror = "1.0.37"
+tracing = "0.1.37"
 url = "2.3.1"
 
 [dev-dependencies]
+reqwest_cookie_store = "0.6"
 tokio = { version = "^1.14", features = [
   "rt-multi-thread",
   "macros",
   "signal",
   "time",
+  "fs",
+  "io-util",
 ] }
+tracing-subscriber = { version = "0.3.17", features = ["env-filter"] }
